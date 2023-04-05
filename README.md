@@ -11,7 +11,7 @@ This project implements the following concepts:
 * [Integration Testing](https://www.baeldung.com/spring-boot-testing)
 * [REST Applications](https://spring.io/guides/gs/rest-service/)
 
-**Reactive programming** is a design paradigm that allows development of **event-driven web applications** which are responsiive and scalable. It is based on Reactive Streams which handles streams of data which are asynchronous.
+**Reactive programming** is a design paradigm that allows development of **event-driven web applications** which are responsive and scalable. It is based on Reactive Streams which handles streams of data which are asynchronous.
 
 Why Spring Webflux? Well, reactive programming is achieved in Spring Webflux through the use of **Mono and Flux** classes which represent a **single or multiple values over time respectively**. 
 
@@ -27,7 +27,7 @@ For example:
         }
 ``
 
-This is a sample service method within this project that fetches all employees from our database.Here we are returning a Flux of Employees from Employees repository. This means that the method will stream employees as they become available rather than waiting for all employee data to be loaded before returning them.
+This is a sample service method within this project that fetches all employees from our database.Here we are returning a Flux of Employees from Employees repository. This means that the method will stream employees as they become available rather than waiting for all employee data to be loaded before returning them (synchronous).
 
 ### Run Application
 **_Prerequisite_**: Ensure you have Mongodb installed on your machine. Can change the database and port details for your Mongodb instance in `application.properties` file located within the resources folder.
