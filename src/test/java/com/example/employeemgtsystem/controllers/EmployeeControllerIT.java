@@ -25,7 +25,7 @@ import static org.instancio.Select.field;
 @ContextConfiguration(classes = EmployeeMgtSystemApplication.class)
 @ActiveProfiles({"test"})
 //@PropertySource("application-test.properties")
-class EmployeeControllerIntegrationTest {
+class EmployeeControllerIT {
 
     @Autowired
     private EmployeeServiceI employeeService;
