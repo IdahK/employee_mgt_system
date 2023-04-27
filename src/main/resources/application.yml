@@ -1,0 +1,61 @@
+port: 27017
+dbName: employeeDb
+server:
+  port: 8081
+  connection-timeout: 60000
+  error:
+    include-message: always
+    whitelabel:
+      enabled: true
+    endpoints:
+      web:
+        exposure:
+          include: [ "health", "info", "metrics", "prometheus", "bindings", "beans", "env", "loggers", "streamsbindings", "mappings" ]
+spring:
+  application:
+    name: EMPLOYEE-SERVICE
+  main:
+    web-application-type: REACTIVE
+    allow-bean-definition-overriding: true
+
+# configure eureka client
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 1
+    lease-expiration-duration-in-seconds: 3
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    fetch-registry: true
+    register-with-eureka: true
+logging:
+  level:
+    web: info
+    sql: debug
+    io:
+      micrometer:
+        observation:  debug
+      reflectoring: debug
+    org:
+      springframework:
+        data:
+          mongodb:
+            core:
+              reactive-mongo-template: debug
+    reactor:
+      netty:
+        http:
+          client: debug
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: ["health", "info", "metrics", "prometheus", "bindings", "beans", "env", "loggers", "streamsbindings", "mappings","flyway","gateway"]
+  endpoint:
+    health:
+      show-details: always
+    gateway:
+      enabled: true
